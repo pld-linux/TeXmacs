@@ -64,7 +64,7 @@ a tak¿e rozszerzanie edytora.
 %build
 cp -f /usr/share/automake/config.* .
 aclocal
-autoconf
+%{__autoconf}
 %configure
 
 %{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
