@@ -1,0 +1,100 @@
+--- TeXmacs-0.3.5.8-src/configure.in~	Sun Dec  2 11:57:09 2001
++++ TeXmacs-0.3.5.8-src/configure.in	Sun Dec  2 11:57:09 2001
+@@ -26,16 +26,6 @@
+ AC_PROG_CC
+ AC_PROG_CXX
+ AC_LANG_CPLUSPLUS
+-AC_MSG_CHECKING(whether GNU C++ compiler is default)
+-case "$GXX" in
+-  yes )
+-    AC_MSG_RESULT(yes)
+-  ;;
+-  *)
+-    AC_MSG_WARN(no)
+-    CXX="g++"
+-  ;;
+-esac
+ GUILE_FLAGS
+ CPP_X_HEADERS
+ 
+@@ -252,80 +242,6 @@
+ AC_SUBST(CONFIG_WORD_MASK)
+ AC_SUBST(CONFIG_MAX_FAST)
+ 
+-#--------------------------------------------------------------------
+-# Default paths for installation
+-#--------------------------------------------------------------------
+-
+-if test "$prefix" = ""; then
+-  prefix=/usr/local
+-fi
+-if test "$prefix" = "NONE"; then
+-  prefix=/usr/local
+-fi
+-if test "$exec_prefix" = ""; then
+-  exec_prefix=${prefix}
+-fi
+-if test "$exec_prefix" = "NONE"; then
+-  exec_prefix=${prefix}
+-fi
+-if test "$exec_prefix" = '${prefix}'; then
+-  exec_prefix=${prefix}
+-fi
+-if test "$includedir" = ""; then
+-  includedir=${exec_prefix}/include
+-fi
+-if test "$includedir" = "NONE"; then
+-  includedir=${exec_prefix}/include
+-fi
+-if test "$includedir" = '${exec_prefix}/include'; then
+-  includedir=${exec_prefix}/include
+-fi
+-if test "$libdir" = ""; then
+-  libdir=${exec_prefix}/lib
+-fi
+-if test "$libdir" = "NONE"; then
+-  libdir=${exec_prefix}/lib
+-fi
+-if test "$libdir" = '${exec_prefix}/lib'; then
+-  libdir=${exec_prefix}/lib
+-fi
+-if test "$bindir" = ""; then
+-  bindir=${exec_prefix}/bin
+-fi
+-if test "$bindir" = "NONE"; then
+-  bindir=${exec_prefix}/bin
+-fi
+-if test "$bindir" = '${exec_prefix}/bin'; then
+-  bindir=${exec_prefix}/bin
+-fi
+-if test "$datadir" = ""; then
+-  datadir=${prefix}/share
+-fi
+-if test "$datadir" = "NONE"; then
+-  datadir=${prefix}/share
+-fi
+-if test "$datadir" = '${prefix}/share'; then
+-  datadir=${prefix}/share
+-fi
+-if test "$mandir" = ""; then
+-  mandir=${prefix}/man
+-fi
+-if test "$mandir" = "NONE"; then
+-  mandir=${prefix}/man
+-fi
+-if test "$mandir" = '${prefix}/man'; then
+-  mandir=${prefix}/man
+-fi
+-if test "$libexecdir" = ""; then
+-  libexecdir=${exec_prefix}/libexec
+-fi
+-if test "$libexecdir" = "NONE"; then
+-  libexecdir=${exec_prefix}/libexec
+-fi
+-if test "$libexecdir" = '${exec_prefix}/libexec'; then
+-  libexecdir=${exec_prefix}/libexec
+-fi
+-
+ curdir="`pwd`"
+ genccpath=${curdir}/gencc/bin
+ tmdir=${PACKAGE}-${VERSION}
