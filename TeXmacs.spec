@@ -1,5 +1,7 @@
-Summary:	A wysiwyg mathematical text editor
-Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
+# TODO:
+# - update pl-translation
+Summary:	A wysiwyg scientific text editor
+Summary(pl):	Edytor WYSIWYG do tekstów naukowych
 Name:		TeXmacs
 Version:	1.0.4
 Release:	1
@@ -14,27 +16,35 @@ BuildRequires:	automake
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	libstdc++-devel
 Requires:	tetex
+Requires:	tetex-metafont
 Requires:	guile-devel
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
-editor, which was both inspired by TeX and GNU Emacs. The program
-implements high quality typesetting using TeX fonts, but it is also
-provides a user friendly interface.
+GNU TeXmacs is a free scientific text editor, which was both inspired
+by TeX and GNU Emacs. The editor allows you to write structured
+documents via a wysiwyg (what-you-see-is-what-you-get) and user
+friendly interface. New styles may be created by the user. The program
+implements high-quality typesetting algorithms and TeX fonts, which
+help you to produce professionally looking documents.
 
 The high typesetting quality still goes through for automatically
-generated formulas, and it is possible to use TeXmacs as an interface
-to computer algebra systems. GNU TeXmacs also supports the
-Guile/Scheme extension language, which makes it possible to adapt the
-user interface to specific needs and even to extend the editor.
+generated formulas, which makes TeXmacs suitable as an interface for
+computer algebra systems. TeXmacs also supports the Guile/Scheme
+extension language, so that you may customize the interface and write
+your own extensions to the editor.
+
+Converters exist for TeX/LaTeX and they are under development for
+Html/MathML/Xml. In the future, TeXmacs is planned to evolve towards a
+complete scientific office suite, with spreadsheet capacities, a
+technical drawing editor and a presentation mode.
 
 %description -l pl
 GNU TeXmacs jest wolnodostêpnym edytorem typu WYSIWYG do tekstów
-matematycznych, zainspirowanym przez TeXa i GNU Emacsa. Ma
-zaimplementowany wysokiej jako¶ci sk³ad tekstu przy u¿yciu fontów TeXa
-a tak¿e udostêpnia przyjazny interfejs u¿ytkownika.
+naukowych, zainspirowanym przez TeXa i GNU Emacsa. Ma zaimplementowany
+wysokiej jako¶ci sk³ad tekstu przy u¿yciu fontów TeXa a tak¿e
+udostêpnia przyjazny interfejs u¿ytkownika.
 
 Wysoka jako¶æ sk³adu jest zachowana przy automatycznie generowanych
 wzorach i jest mo¿liwe u¿ywanie TeXmacsa jako interfejsu do systemów
