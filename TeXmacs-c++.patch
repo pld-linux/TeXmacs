@@ -1,0 +1,11 @@
+--- TeXmacs-1.0.2.5-src/src/Plugins/Freetype/tt_font.cpp~	2003-10-28 11:00:51.000000000 +0100
++++ TeXmacs-1.0.2.5-src/src/Plugins/Freetype/tt_font.cpp	2003-11-02 11:20:33.000000000 +0100
+@@ -167,7 +167,7 @@
+     E->y3= dy - hh;
+     E->x4= dx + ww;
+     E->y4= dy;
+-    T[i]= E;
++    T[i][0] = E[0];
+   }
+   bmm= new bitmap_metric_rep (res_name, T, 0, 255);
+   bmf= new bitmap_font_rep   (res_name, B, 0, 255);
