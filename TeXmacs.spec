@@ -15,9 +15,10 @@ BuildRequires:	XFree86-devel
 BuildRequires:	automake
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	libstdc++-devel
+Requires:	kpathsea
 Requires:	tetex
+Requires:	tetex-dvips
 Requires:	tetex-metafont
-Requires:	guile-devel
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
