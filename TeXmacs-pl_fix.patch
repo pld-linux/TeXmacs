@@ -1,0 +1,11 @@
+--- ./TeXmacs/langs/natural/dic/english-polish.scm.org	Mon Aug 30 19:25:21 2004
++++ ./TeXmacs/langs/natural/dic/english-polish.scm	Sat Sep  4 15:19:41 2004
+@@ -144,7 +144,7 @@
+ ("bulgarian" "buªgarski")
+ ("bullet" "kropka")
+ ("bullets" "kropki")
+-("by" "twórca")
++("by" "autor")
+ ("by typing" "przez wpisanie")
+ ("bytes free" "bajtów wolnych")
+ ("bytes used" "bajtów zaj¦tych")
