@@ -46,7 +46,7 @@ a tak¿e rozszerzanie mo¿liwo¶ci edytora.
 %setup -q -n %{name}-%{version}-src
 
 %build
-cp -f /usr/share/automake/config.sub .
+cp -f %{_datadir}/automake/config.sub .
 %configure2_13
 
 # DO NOT add -fno-rtti -fno-implicit-templates, it BREAKS build
