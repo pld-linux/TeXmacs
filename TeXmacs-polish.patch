@@ -1,0 +1,32 @@
+diff -urN TeXmacs-0.3.5.8-src.org/src/Window/X/x_init.gen.cc TeXmacs-0.3.5.8-src/src/Window/X/x_init.gen.cc
+--- TeXmacs-0.3.5.8-src.org/src/Window/X/x_init.gen.cc	Sun Dec  2 22:23:43 2001
++++ TeXmacs-0.3.5.8-src/src/Window/X/x_init.gen.cc	Mon Dec  3 19:14:26 2001
+@@ -480,6 +480,28 @@
+   Map(XK_uring, "\xb7");
+   Map(XK_zcaron,"\xba");
+ 
++  // Polish symbols
++  Map(XK_Aogonek, "\x81");
++  Map(XK_aogonek, "\xa1");
++  Map(XK_Cacute, "\x82");
++  Map(XK_cacute, "\xa2");
++  Map(XK_Eogonek, "\x86");
++  Map(XK_eogonek, "\xa6");
++  Map(XK_Lstroke, "\x8a");
++  Map(XK_lstroke, "\xaa");
++  Map(XK_Nacute, "\x8b");
++  Map(XK_nacute, "\xab");
++  /* Oacute and oacute is already handled
++  Map (XK_Oacute, "\xd3");
++  Map (XK_oacute, "\xf3");
++  */
++  Map(XK_Sacute, "\x91");
++  Map(XK_sacute, "\xb1");
++  Map(XK_Zacute, "\x99");
++  Map(XK_zacute, "\xb9");
++  Map(XK_Zabovedot, "\x9b");
++  Map(XK_zabovedot, "\xbb");
++
+   // Control keys
+   map (XK_space, "space");
+   map (XK_Return, "return");
