@@ -1,12 +1,12 @@
 Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
-Version:	1.0.1.15
+Version:	1.0.2.4
 Release:	1
 License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
-# Source0-md5:	6793ac3a56ebea269c4665a4c3a5877d
+# Source0-md5:	309422302613de8e744d18e48484cb2c
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
@@ -64,8 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
 %{_includedir}/*.h
-%dir %{_libdir}/%{name}-%{version}
-%dir %{_libdir}/%{name}-%{version}/bin
-%attr(755,root,root) %{_libdir}/%{name}-%{version}/bin/*
-%{_datadir}/%{name}-%{version}
+%dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/bin
+%attr(755,root,root) %{_libdir}/%{name}/bin/*
+%{_datadir}/%{name}
 %{_mandir}/man?/*
