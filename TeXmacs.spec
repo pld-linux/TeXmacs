@@ -7,11 +7,8 @@ License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
 # Source0-md5:	70862234c6f33febb06643280227bccb
-Patch0:		%{name}-c++.patch
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
 BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	libstdc++-devel
 Requires:	tetex
@@ -45,13 +42,13 @@ a tak¿e rozszerzanie mo¿liwo¶ci edytora.
 
 %prep
 %setup -q -n %{name}-%{version}-src
-#%patch0 -p1
 
 %build
 %configure
 
 # DO NOT add -fno-rtti -fno-implicit-templates, it BREAKS build
-%{__make} CXXOPTIMIZE="%{rpmcflags} -fno-exceptions"
+%{__make} \
+	CXXOPTIMIZE="%{rpmcflags} -fno-exceptions"
 
 %install
 rm -rf $RPM_BUILD_ROOT
