@@ -1,19 +1,20 @@
 Summary:	A wysiwyg mathematical text editor
+Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
 Version:	0.3.0
+%define	veradd	7
 Release:	7
-Requires:	tetex
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
 Group(pt):	Aplicações/Editores
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/TeXmacs/%{name}-%{version}-7-src.tar.gz
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/TeXmacs/%{name}-%{version}-%{veradd}-src.tar.gz
 Vendor:		Jo the ripper software
+Requires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-
 GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
 editor, which was both inspired by TeX and GNU Emacs. The program
 implements high quality typesetting using TeX fonts, but it is also
@@ -25,27 +26,34 @@ to computer algebra systems. GNU TeXmacs also supports the
 Guile/Scheme extension language, which makes it possible to adapt the
 user interface to specific needs and even to extend the editor.
 
+%description -l pl
+GNU TeXmacs jest wolnodostêpnym edytorem typu WYSIWYG do tekstów
+matematycznych, zainspirowanym przez TeX-a i GNU Emacsa. Ma
+zaimplementowany wysokiej jako¶ci sk³ad przy u¿yciu fontów TeX-a, ale
+udostêpnia tak¿e przyjazny interfejs u¿ytkownika.
+
+Wysoka jako¶æ sk³adu jest zachowana przy automatycznie generowanych
+wzorach i jest mo¿liwe u¿ywanie TeXmacsa jako interfejsu do systemów
+algebry. GNU TeXmacs obs³uguje tak¿e jêzyk rozszerzeñ Guile/Scheme, co
+umo¿liwia adaptowanie interfejsu u¿ytkownika do specyficznych potrzeb,
+a tak¿e rozszerzanie edytora.
+
 %prep
-mkdir -p $RPM_BUILD_ROOT/usr
-cd $RPM_BUILD_ROOT
-zcat $RPM_SOURCE_DIR/TeXmacs-0.3.0-5-src.tar.gz | tar -xvf -
+%setup -q -n %{name}-%{version}-%{veradd}-src
 
 %build
-cd $RPM_BUILD_ROOT/TeXmacs-0.3.0-5-src
 ./configure --prefix=$RPM_BUILD_ROOT%{_prefix}
-%{__make} CXXFLAGS="-O3 -fexpensive-optimizations -malign-loops=2 -malign-jumps=2 -malign-functions=2" STATIC_TEXMACS
+%{__make} CXXFLAGS="%{rpmcflags}" STATIC_TEXMACS
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd $RPM_BUILD_ROOT/TeXmacs-0.3.0-5-src
 %{__make} install
 ./configure --prefix=%{_prefix}
-chmod 755 TeXmacs-0.3.0-5/bin/*
-cp TeXmacs-0.3.0-5/bin/fig2ps $RPM_BUILD_ROOT%{_bindir}
-cp TeXmacs-0.3.0-5/bin/texmacs $RPM_BUILD_ROOT%{_bindir}
-export GUILE_DATA_PATH=`guile-config info pkgdatadir`
-export GUILE_LOAD_PATH=`find $GUILE_DATA_PATH -type d | grep ice-9`
-cp -r -f $GUILE_LOAD_PATH $RPM_BUILD_ROOT%{_datadir}/TeXmacs-0.3.0-5/progs
+install bin/fig2ps $RPM_BUILD_ROOT%{_bindir}
+install bin/texmacs $RPM_BUILD_ROOT%{_bindir}
+GUILE_DATA_PATH=`guile-config info pkgdatadir`
+GUILE_LOAD_PATH=`find $GUILE_DATA_PATH -type d | grep ice-9`
+cp -rf $GUILE_LOAD_PATH $RPM_BUILD_ROOT%{_datadir}/TeXmacs-0.3.0-5/progs
 chmod 755 $RPM_BUILD_ROOT%{_datadir}/TeXmacs-0.3.0-5/progs/ice-9
 rm -f $RPM_BUILD_ROOT%{_datadir}/TeXmacs-0.3.0-5/lib/*.so
 
