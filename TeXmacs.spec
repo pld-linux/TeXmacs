@@ -1,4 +1,3 @@
-
 %define         _gcc_ver        %(%{__cc} --version | cut -b 1)
 
 Summary:	A wysiwyg mathematical text editor
@@ -15,6 +14,7 @@ URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	config
 BuildRequires:	guile-devel
 BuildRequires:	libstdc++-devel
 %if %{_gcc_ver} == 3
@@ -23,6 +23,14 @@ BuildRequires:	gcc2-c++
 Requires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+# gcc3 produces broken code (argh!!!), so switch to gcc3 if we found it
+%if %{_gcc_ver} == 3
+%define		__cc		gcc2
+%define		__cxx		g++2
+%ifarch athlon
+%define		rpmcflags	-O2 -march=i686
+%endif
+%endif
 
 %description
 GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
@@ -56,15 +64,7 @@ a tak¿e rozszerzanie edytora.
 %build
 aclocal
 autoconf
-cp -f /usr/share/automake/config.* .
-# gcc3 produces broken code (argh!!!), so switch to gcc3 if we found it
-%if %{_gcc_ver} == 3
-%define		__cc		gcc2
-%define		__cxx		g++2
-%ifarch athlon
-%define		rpmcflags	-O2 -march=i686
-%endif
-%endif
+updateconfig
 %configure
 
 %{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
