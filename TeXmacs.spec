@@ -1,8 +1,8 @@
 Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
-Version:	0.3.5.8
-Release:	2
+Version:	0.3.5.10
+Release:	1
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
