@@ -14,7 +14,7 @@ URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	guile-devel
+BuildRequires:	guile-devel >= 1.4.1
 BuildRequires:	libstdc++-devel
 %if %{_gcc_ver} == 3
 BuildRequires:	gcc2-c++
