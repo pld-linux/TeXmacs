@@ -61,6 +61,7 @@ a tak¿e rozszerzanie edytora.
 %patch1 -p1
 
 %build
+cp -f /usr/share/automake/config.* .
 aclocal
 autoconf
 %configure
