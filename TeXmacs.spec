@@ -1,4 +1,4 @@
-%define         _gcc_ver        %(%{__cc} --version | cut -b 1)
+%define         _gcc_ver        %(%{__cc} -dumpversion | cut -b 1)
 
 Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
