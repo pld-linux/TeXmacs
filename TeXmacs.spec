@@ -3,7 +3,7 @@
 Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
-Version:	0.3.5.13
+Version:	0.3.5.14
 Release:	1
 License:	GPL
 Group:		Applications/Editors
@@ -22,7 +22,7 @@ BuildRequires:	gcc2-c++
 Requires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-# gcc3 produces broken code (argh!!!), so switch to gcc3 if we found it
+# gcc3 produces broken code (argh!!!), so switch to gcc2 if we found it
 %if %{_gcc_ver} == 3
 %define		__cc		gcc2
 %define		__cxx		g++2
@@ -63,7 +63,6 @@ a tak¿e rozszerzanie edytora.
 %build
 aclocal
 autoconf
-updateconfig
 %configure
 
 %{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
