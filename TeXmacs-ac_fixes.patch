@@ -1,25 +1,27 @@
---- TeXmacs-0.3.5.8-src/configure.in~	Sun Dec  2 11:57:09 2001
-+++ TeXmacs-0.3.5.8-src/configure.in	Sun Dec  2 11:57:09 2001
-@@ -26,16 +26,6 @@
+--- TeXmacs-1.0.0.20-src/configure.in	2002-10-27 01:05:30.000000000 +0200
++++ TeXmacs-1.0.0.20-src.new/configure.in	2002-10-29 19:29:32.000000000 +0100
+@@ -12,7 +12,8 @@
+ #
+ #--------------------------------------------------------------------
+ 
+-AC_INIT(Makefile.in)
++AC_INIT
++AC_CONFIG_SRCDIR([Makefile.in])
+ 
+ PACKAGE="TeXmacs"
+ VERSION="1.0.0.20"
+@@ -25,7 +26,7 @@
+ 
  AC_PROG_CC
  AC_PROG_CXX
- AC_LANG_CPLUSPLUS
--AC_MSG_CHECKING(whether GNU C++ compiler is default)
--case "$GXX" in
--  yes )
--    AC_MSG_RESULT(yes)
--  ;;
--  *)
--    AC_MSG_WARN(no)
--    CXX="g++"
--  ;;
--esac
- GUILE_FLAGS
- CPP_X_HEADERS
- 
-@@ -252,80 +242,6 @@
- AC_SUBST(CONFIG_WORD_MASK)
- AC_SUBST(CONFIG_MAX_FAST)
+-AC_LANG_CPLUSPLUS
++AC_LANG([C++])
+ AC_MSG_CHECKING(whether GNU C++ compiler is default)
+ case "$GXX" in
+   yes )
+@@ -590,80 +591,6 @@
+ AC_SUBST(CONFIG_LIB_PATH)
+ AC_SUBST(CONFIG_STRIP)
  
 -#--------------------------------------------------------------------
 -# Default paths for installation
@@ -96,96 +98,12 @@
 -fi
 -
  curdir="`pwd`"
- genccpath=${curdir}/gencc/bin
  tmdir=${PACKAGE}-${VERSION}
-diff -Nru TeXmacs-0.3.5.8-src/acinclude.m4 TeXmacs-0.3.5.8-src.new/acinclude.m4
---- TeXmacs-0.3.5.8-src/acinclude.m4	Thu Jan  1 01:00:00 1970
-+++ TeXmacs-0.3.5.8-src.new/acinclude.m4	Mon Dec  3 19:41:15 2001
-@@ -0,0 +1,29 @@
-+#-------------------------------------------------------------------
-+# Modify the X include files to make them C++-compatible, if needed
-+#-------------------------------------------------------------------
-+
-+AC_DEFUN([CPP_X_HEADERS],[
-+AC_MSG_CHECKING(for C++-compatible X header files)
-+ac_save_cppflags="$CPPFLAGS"
-+CPPFLAGS="$CPPFLAGS $X_CFLAGS"
-+AC_TRY_COMPILE([#include <X11/Xlib.h>
-+#include <X11/Xutil.h>],,
-+echo yes,
-+[rm -rf X11
-+mkdir X11
-+if [ "x$x_includes" != xNONE ]
-+then
-+  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
-+    < "$x_includes/X11/Xlib.h" > X11/Xlib.h
-+  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
-+    < "$x_includes/X11/Xutil.h" > X11/Xutil.h
-+else
-+  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
-+    < /usr/include/X11/Xlib.h > X11/Xlib.h
-+  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
-+    < /usr/include/X11/Xutil.h > X11/Xutil.h
-+fi
-+X_CFLAGS="-I.. $X_CFLAGS"
-+echo "no; fixing"])
-+CPPFLAGS="$ac_save_cppflags"
-+])
-diff -Nru TeXmacs-0.3.5.8-src/aclocal.m4 TeXmacs-0.3.5.8-src.new/aclocal.m4
---- TeXmacs-0.3.5.8-src/aclocal.m4	Wed Nov 28 09:36:52 2001
-+++ TeXmacs-0.3.5.8-src.new/aclocal.m4	Thu Jan  1 01:00:00 1970
-@@ -1,54 +0,0 @@
--
--#-------------------------------------------------------------------
--# Modified version of GUILE_FLAGS in guile.m4
--# from the official guile distribution
--#-------------------------------------------------------------------
--
--AC_DEFUN([GUILE_FLAGS],[
--## The GUILE_FLAGS macro.
--  ## First, let's just see if we can find Guile at all.
--  AC_MSG_CHECKING(for Guile)
--  guile-config link > /dev/null || {
--    echo "configure: cannot find guile-config; is Guile installed?" 1>&2
--    exit 1
--  }
--  GUILE_ORIGINAL_CFLAGS="`guile-config compile`"
--  GUILE_CFLAGS="$GUILE_ORIGINAL_CFLAGS"
--  GUILE_VARIANT_CFLAGS="$GUILE_ORIGINAL_CFLAGS $GUILE_ORIGINAL_CFLAGS/guile $GUILE_ORIGINAL_CFLAGS/libguile"
--  GUILE_LDFLAGS="`guile-config link`"
--  GUILE_VARIANT_LDFLAGS="-L`guile-config info libdir` -lguile -lreadline -ltermcap"
--  AC_SUBST(GUILE_CFLAGS)
--  AC_SUBST(GUILE_LDFLAGS)
--  AC_MSG_RESULT(yes)
--])
--
--
--#-------------------------------------------------------------------
--# Modify the X include files to make them C++-compatible, if needed
--#-------------------------------------------------------------------
--
--AC_DEFUN(CPP_X_HEADERS,[
--AC_MSG_CHECKING(for C++-compatible X header files)
--ac_save_cppflags="$CPPFLAGS"
--CPPFLAGS="$CPPFLAGS $X_CFLAGS"
--AC_TRY_COMPILE([#include <X11/Xlib.h>
--#include <X11/Xutil.h>],,
--echo yes,
--[rm -rf X11
--mkdir X11
--if [ "x$x_includes" != xNONE ]
--then
--  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
--    < "$x_includes/X11/Xlib.h" > X11/Xlib.h
--  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
--    < "$x_includes/X11/Xutil.h" > X11/Xutil.h
--else
--  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
--    < /usr/include/X11/Xlib.h > X11/Xlib.h
--  sed 's/^extern \([[a-zA-Z0-9]]*(\)/extern int \1/' \
--    < /usr/include/X11/Xutil.h > X11/Xutil.h
--fi
--X_CFLAGS="-I.. $X_CFLAGS"
--echo "no; fixing"])
--CPPFLAGS="$ac_save_cppflags"
--])
+ tmsrc=${curdir}/${tmdir}
+@@ -678,4 +605,5 @@
+ # Done
+ #--------------------------------------------------------------------
+ 
+-AC_OUTPUT(Makefile:Makefile.in src/common.makefile:src/common.makefile.in src/Basic/System/tm_configure.hh:src/Basic/System/tm_configure.in misc/Makefile:misc/Makefile.in misc/doxygen/Doxyfile:misc/doxygen/Doxyfile.in misc/scripts/fig2ps:misc/scripts/fig2ps.in misc/scripts/texmacs:misc/scripts/texmacs.in)
++AC_CONFIG_FILES([Makefile:Makefile.in src/common.makefile:src/common.makefile.in src/Basic/System/tm_configure.hh:src/Basic/System/tm_configure.in misc/Makefile:misc/Makefile.in misc/doxygen/Doxyfile:misc/doxygen/Doxyfile.in misc/scripts/fig2ps:misc/scripts/fig2ps.in misc/scripts/texmacs:misc/scripts/texmacs.in])
++AC_OUTPUT
