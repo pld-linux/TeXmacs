@@ -63,7 +63,7 @@ a tak¿e rozszerzanie edytora.
 
 %build
 cp -f /usr/share/automake/config.* .
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure
 
