@@ -3,12 +3,12 @@
 Summary:	A wysiwyg scientific text editor
 Summary(pl):	Edytor WYSIWYG do tekstów naukowych
 Name:		TeXmacs
-Version:	1.0.4.1
+Version:	1.0.4.2
 Release:	1
 License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
-# Source0-md5:	b0c66ad185ea78c4fcec4a6b30a2e5eb
+# Source0-md5:	4e9afcdc7625c4849111aa2a494081f3
 Source1:	%{name}.desktop
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
