@@ -57,5 +57,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/texmacs
 %attr(755,root,root) %{_bindir}/fig2ps
 %{_includedir}/TeXmacs.h
-%{_prefix}/man/man1/texmacs.1.gz
+%{_mandir}/man1/texmacs.1*
 %{_datadir}/TeXmacs-0.3.0-5
