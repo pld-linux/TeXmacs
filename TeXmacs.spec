@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
-# Source0-md5:	663bb1a389da89e436c87c748e519a41
+# Source0-md5:	a62975d89ea0023a5eaa1eef475c5a10
 Source1:	%{name}.desktop
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
