@@ -29,6 +29,8 @@ BuildRequires:	libstdc++-devel
 Requires:	tetex
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define         _gcc_ver        %(%{__cc} --version | cut -b 1)
+
 %description
 GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
 editor, which was both inspired by TeX and GNU Emacs. The program
@@ -64,10 +66,13 @@ autoconf
 cp -f /usr/share/automake/config.* .
 %configure
 
-# %{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
-# causes SIGSEV on gcc3
-
+# adding this CXXFLAGS causes gcc3 SIGSEV, so use it only with gcc2.x
+%if %{_gcc_ver} == 2
+%{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
+%endif
+%if %{_gcc_ver} == 3
 %{__make}
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
