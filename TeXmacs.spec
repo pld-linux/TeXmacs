@@ -2,11 +2,12 @@ Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
 Version:	1.0.3.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
 # Source0-md5:	3904b09fc8b9aec47c340b462aa94e54
+Source1:	%{name}.desktop
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
 BuildRequires:	automake
@@ -16,6 +17,8 @@ Requires:	tetex
 Requires:	guile-devel
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_desktopdir	%{_applnkdir}/Editors/
 
 %description
 GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
@@ -54,9 +57,12 @@ cp -f /usr/share/automake/config.sub .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_desktopdir}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -69,4 +75,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}/bin
 %attr(755,root,root) %{_libdir}/%{name}/bin/*
 %{_datadir}/%{name}
+%{_desktopdir}/*.desktop
 %{_mandir}/man?/*
