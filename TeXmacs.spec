@@ -32,8 +32,8 @@ user interface to specific needs and even to extend the editor.
 
 %description -l pl
 GNU TeXmacs jest wolnodostêpnym edytorem typu WYSIWYG do tekstów
-matematycznych, zainspirowanym przez TeX-a i GNU Emacsa. Ma
-zaimplementowany wysokiej jako¶ci sk³ad tekstu przy u¿yciu fontów TeX-a
+matematycznych, zainspirowanym przez TeXa i GNU Emacsa. Ma
+zaimplementowany wysokiej jako¶ci sk³ad tekstu przy u¿yciu fontów TeXa
 a tak¿e udostêpnia przyjazny interfejs u¿ytkownika.
 
 Wysoka jako¶æ sk³adu jest zachowana przy automatycznie generowanych
