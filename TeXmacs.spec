@@ -1,14 +1,14 @@
 Summary:	A wysiwyg mathematical text editor
 Name:		TeXmacs
-Version:	0.3.0.7
-Release:	1
+Version:	0.3.0
+Release:	7
 Requires:	tetex
 License:	GPL
 Group:		Applications/Editors
 Group(de):	Applikationen/Editors
 Group(pl):	Aplikacje/Edytory
 Group(pt):	Aplicações/Editores
-Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/TeXmacs/%{name}-%{version}-5-src.tar.gz
+Source0:	ftp://ftp.dante.de/tex-archive/systems/unix/TeXmacs/%{name}-%{version}-7-src.tar.gz
 Vendor:		Jo the ripper software
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
