@@ -18,6 +18,8 @@ Requires:	guile-devel
 Requires:	ghostscript
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_desktopdir	%{_applnkdir}/Editors/
+
 %description
 GNU TeXmacs is a free what-you-see-is-what-you-get mathematical text
 editor, which was both inspired by TeX and GNU Emacs. The program
