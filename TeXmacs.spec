@@ -20,6 +20,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	gcc2-c++
 %endif
 Requires:	tetex
+Requires:	guile-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 # gcc3 produces broken code (argh!!!), so switch to gcc2 if we found it
