@@ -1,6 +1,6 @@
 # TODO:
 # - update pl-translation
-Summary:	A wysiwyg scientific text editor
+Summary:	A WYSIWYG scientific text editor
 Summary(pl):	Edytor WYSIWYG do tekstów naukowych
 Name:		TeXmacs
 Version:	1.0.4.2
@@ -25,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GNU TeXmacs is a free scientific text editor, which was both inspired
 by TeX and GNU Emacs. The editor allows you to write structured
-documents via a wysiwyg (what-you-see-is-what-you-get) and user
+documents via a WYSIWYG (what-you-see-is-what-you-get) and user
 friendly interface. New styles may be created by the user. The program
 implements high-quality typesetting algorithms and TeX fonts, which
 help you to produce professionally looking documents.
