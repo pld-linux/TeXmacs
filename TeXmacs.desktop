@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=TeXmacs
+Comment=TeXmacs text editor
+Comment[pl]=Edytor tekstu TeXmacs
+TryExec=texmacs
+Exec=texmacs
+Icon=texmacs.png
+Terminal=false
+Type=Application
+Encoding=UTF-8
+# vi: encoding=utf-8
