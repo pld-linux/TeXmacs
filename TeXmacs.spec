@@ -2,7 +2,7 @@ Summary:	A wysiwyg mathematical text editor
 Summary(pl):	Edytor WYSIWYG do tekstów matematycznych
 Name:		TeXmacs
 Version:	0.3.5.12
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Editors
 Group(cs):	Aplikace/Editory
@@ -61,9 +61,13 @@ a tak¿e rozszerzanie edytora.
 %build
 aclocal
 autoconf
+cp -f /usr/share/automake/config.* .
 %configure
 
-%{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
+# %{__make} CXXFLAGS="%{rpmcflags} -fno-exceptions -fno-rtti -fno-implicit-templates"
+# causes SIGSEV on gcc3
+
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
