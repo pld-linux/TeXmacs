@@ -1,7 +1,7 @@
 Summary:	A wysiwyg mathematical text editor
 Name:		TeXmacs
 Version:	0.3.0
-Release:	5
+Release:	7
 Requires:	tetex
 License:	GPL
 Group:		Applications/Editors
