@@ -1,5 +1,5 @@
 Summary:	A WYSIWYG scientific text editor
-Summary(pl.UTF-8):   Edytor WYSIWYG do tekstów naukowych
+Summary(pl.UTF-8):	Edytor WYSIWYG do tekstów naukowych
 Name:		TeXmacs
 Version:	1.0.6.1
 Release:	1
