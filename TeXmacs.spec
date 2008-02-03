@@ -1,14 +1,12 @@
-# TODO:
-# - update pl-translation
-Summary:	A wysiwyg scientific text editor
-Summary(pl):	Edytor WYSIWYG do tekstÛw naukowych
+Summary:	A WYSIWYG scientific text editor
+Summary(pl.UTF-8):	Edytor WYSIWYG do tekst√≥w naukowych
 Name:		TeXmacs
-Version:	1.0.4
+Version:	1.0.6.12
 Release:	1
 License:	GPL
 Group:		Applications/Editors
 Source0:	ftp://ftp.texmacs.org/pub/TeXmacs/targz/%{name}-%{version}-src.tar.gz
-# Source0-md5:	ebec9edf0872def83e42a1faa54f7d2a
+# Source0-md5:	5cdd9ea143657e8801d50b9dcc97c510
 Source1:	%{name}.desktop
 URL:		http://www.texmacs.org/
 BuildRequires:	XFree86-devel
@@ -25,7 +23,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 GNU TeXmacs is a free scientific text editor, which was both inspired
 by TeX and GNU Emacs. The editor allows you to write structured
-documents via a wysiwyg (what-you-see-is-what-you-get) and user
+documents via a WYSIWYG (what-you-see-is-what-you-get) and user
 friendly interface. New styles may be created by the user. The program
 implements high-quality typesetting algorithms and TeX fonts, which
 help you to produce professionally looking documents.
@@ -41,24 +39,29 @@ Html/MathML/Xml. In the future, TeXmacs is planned to evolve towards a
 complete scientific office suite, with spreadsheet capacities, a
 technical drawing editor and a presentation mode.
 
-%description -l pl
-GNU TeXmacs jest wolnodostÍpnym edytorem typu WYSIWYG do tekstÛw
+%description -l pl.UTF-8
+GNU TeXmacs jest wolnodostƒôpnym edytorem typu WYSIWYG do tekst√≥w
 naukowych, zainspirowanym przez TeXa i GNU Emacsa. Ma zaimplementowany
-wysokiej jako∂ci sk≥ad tekstu przy uøyciu fontÛw TeXa a takøe
-udostÍpnia przyjazny interfejs uøytkownika.
+wysokiej jako≈õci sk≈Çad tekstu przy u≈ºyciu font√≥w TeXa a tak≈ºe
+udostƒôpnia przyjazny interfejs u≈ºytkownika.
 
-Wysoka jako∂Ê sk≥adu jest zachowana przy automatycznie generowanych
-wzorach i jest moøliwe uøywanie TeXmacsa jako interfejsu do systemÛw
-algebry. GNU TeXmacs obs≥uguje takøe jÍzyk rozszerzeÒ Guile/Scheme, co
-umoøliwia adaptowanie interfejsu uøytkownika do specyficznych potrzeb,
-a takøe rozszerzanie moøliwo∂ci edytora.
+Wysoka jako≈õƒá sk≈Çadu jest zachowana przy automatycznie generowanych
+wzorach i jest mo≈ºliwe u≈ºywanie TeXmacsa jako interfejsu do system√≥w
+algebry. GNU TeXmacs obs≈Çuguje tak≈ºe jƒôzyk rozszerze≈Ñ Guile/Scheme, co
+umo≈ºliwia adaptowanie interfejsu u≈ºytkownika do specyficznych potrzeb,
+a tak≈ºe rozszerzanie mo≈ºliwo≈õci edytora.
+
+IstniejƒÖ konwertery dla TeX/LaTeX, sƒÖ tak≈ºe w przygotowaniu dla
+Html/MathML/Xml. W przysz≈Ço≈õci, TeXmacs jest planowany jako kompletny zestaw
+naukowy, z mo≈ºliwo≈õciami arkusza, edytorem technicznych rysunk√≥w i trybem
+prezentacji.
 
 %prep
 %setup -q -n %{name}-%{version}-src
 
 %build
 cp -f %{_datadir}/automake/config.sub .
-%configure2_13
+%configure
 
 # DO NOT add -fno-rtti -fno-implicit-templates, it BREAKS build
 %{__make} \
